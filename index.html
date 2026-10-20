@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zeliş Abla Beni Affet ❤️</title>
 
-<!-- Konfeti efekti için gerekli kütüphane -->
+<!-- Konfeti efekti kütüphanesi -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <style>
@@ -18,7 +18,7 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #ffd1e8, #e5c7ff);
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', Arial, sans-serif;
   text-align: center;
   overflow: hidden;
 }
@@ -31,6 +31,8 @@ body {
   box-shadow: 0 10px 35px #a65b8a55;
   width: 420px;
   max-width: calc(100% - 32px);
+  position: relative;
+  z-index: 1;
 }
 
 h1 { color: #ed4d94; margin-bottom: 5px; }
@@ -64,7 +66,7 @@ button {
 <body>
 
 <div class="kart">
-  <div style="font-size:55px">🥹💗</div>
+  <div style="font-size:55px; line-height: 1.2;">&#129402;&#128151;</div>
   <h1>Zeliş Abla</h1>
   <h2>Lojmanı Affet...</h2>
   <p>Bir cahillik yaptım abla.<br>Beni affeder misin?</p>
@@ -101,7 +103,7 @@ document.getElementById("evet").addEventListener("click", function() {
   mesaj.textContent = "YAŞASIN! ZELİŞ ABLA AFFETTİ! ❤️🥹";
   hayir.style.display = "none";
 
-  // 🎉 Konfeti Patlatma Efekti
+  // Konfeti patlatma
   confetti({
     particleCount: 120,
     spread: 70,
