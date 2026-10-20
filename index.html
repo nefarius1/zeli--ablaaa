@@ -3,199 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>balonbalığıkraliçesizera</title>
+<title>Zeliş Abla Beni Affet ❤️</title>
+
+<!-- Konfeti efekti için gerekli kütüphane -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <style>
+* { box-sizing: border-box; }
 
-body{
-    margin:0;
-    overflow:hidden;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    background:linear-gradient(to bottom,#001f3f,#0074D9);
-    font-family:Arial,sans-serif;
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffd1e8, #e5c7ff);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  overflow: hidden;
 }
 
-/* Neon Yazı */
-
-h1{
-    color:#fff;
-    font-size:55px;
-    text-align:center;
-    text-shadow:
-    0 0 5px #fff,
-    0 0 10px #ff00ff,
-    0 0 20px #ff00ff,
-    0 0 40px #ff00ff;
-    animation:parla 2s infinite alternate;
-    z-index:2;
+.kart {
+  background: white;
+  padding: 30px 20px;
+  margin: 16px;
+  border-radius: 25px;
+  box-shadow: 0 10px 35px #a65b8a55;
+  width: 420px;
+  max-width: calc(100% - 32px);
 }
 
-@keyframes parla{
-    from{
-        opacity:0.8;
-    }
-    to{
-        opacity:1;
-    }
+h1 { color: #ed4d94; margin-bottom: 5px; }
+h2 { color: #8a3b68; margin-top: 0; font-size: 20px; }
+p { color: #555; font-size: 18px; line-height: 1.4; }
+
+button {
+  border: 0;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 8px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.1s ease;
 }
 
-/* Balık */
+#evet { background: #ff65a3; color: white; }
+#evet:active { transform: scale(0.95); }
+#hayir { background: #eeeeee; color: #333; }
 
-.fish{
-    width:230px;
-    height:230px;
-    background:#ffd166;
-    border-radius:50%;
-    position:relative;
-    animation:yuz 4s ease-in-out infinite;
-    box-shadow:0 0 40px rgba(255,255,255,0.6);
-    z-index:2;
+#mesaj {
+  color: #ed4d94;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 18px;
 }
-
-.eye{
-    width:30px;
-    height:30px;
-    background:white;
-    border-radius:50%;
-    position:absolute;
-    top:70px;
-}
-
-.eye::after{
-    content:"";
-    width:12px;
-    height:12px;
-    background:black;
-    border-radius:50%;
-    position:absolute;
-    top:9px;
-    left:9px;
-}
-
-.left{
-    left:55px;
-}
-
-.right{
-    right:55px;
-}
-
-.mouth{
-    width:60px;
-    height:30px;
-    border-bottom:5px solid black;
-    border-radius:0 0 50px 50px;
-    position:absolute;
-    top:130px;
-    left:85px;
-}
-
-.fin{
-    width:70px;
-    height:70px;
-    background:#ffb347;
-    border-radius:50%;
-    position:absolute;
-    top:75px;
-    z-index:-1;
-}
-
-.fin1{
-    left:-25px;
-}
-
-.fin2{
-    right:-25px;
-}
-
-@keyframes yuz{
-    0%{
-        transform:translateY(0px) translateX(0px);
-    }
-    25%{
-        transform:translateY(-20px) translateX(20px);
-    }
-    50%{
-        transform:translateY(0px) translateX(-20px);
-    }
-    75%{
-        transform:translateY(20px) translateX(20px);
-    }
-    100%{
-        transform:translateY(0px) translateX(0px);
-    }
-}
-
-/* Baloncuklar */
-
-.bubble{
-    position:absolute;
-    bottom:-100px;
-    background:rgba(255,255,255,0.5);
-    border-radius:50%;
-    animation:baloncuk linear infinite;
-}
-
-@keyframes baloncuk{
-    from{
-        transform:translateY(0);
-        opacity:1;
-    }
-    to{
-        transform:translateY(-120vh);
-        opacity:0;
-    }
-}
-
 </style>
 </head>
-
 <body>
 
-<!-- Müzik -->
-<audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
+<div class="kart">
+  <div style="font-size:55px">🥹💗</div>
+  <h1>Zeliş Abla</h1>
+  <h2>Lojmanı Affet...</h2>
+  <p>Bir cahillik yaptım abla.<br>Beni affeder misin?</p>
 
-<!-- Baloncuklar -->
-<script>
-for(let i=0;i<40;i++){
+  <button id="evet">Affettim ❤️</button>
+  <button id="hayir">Hayır 😭</button>
 
-    let bubble=document.createElement("div");
-    bubble.classList.add("bubble");
-
-    let size=Math.random()*30+10;
-
-    bubble.style.width=size+"px";
-    bubble.style.height=size+"px";
-
-    bubble.style.left=Math.random()*100+"vw";
-
-    bubble.style.animationDuration=(Math.random()*5+5)+"s";
-
-    document.body.appendChild(bubble);
-}
-</script>
-
-<!-- Balık -->
-
-<div class="fish">
-
-    <div class="fin fin1"></div>
-    <div class="fin fin2"></div>
-
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-
-    <div class="mouth"></div>
-
+  <div id="mesaj"></div>
 </div>
 
-<h1>balonbalığıkraliçesizera</h1>
+<script>
+const hayir = document.getElementById("hayir");
+const mesaj = document.getElementById("mesaj");
+
+function kac() {
+  hayir.style.position = "fixed";
+  hayir.style.zIndex = "9999";
+
+  const maxX = Math.max(0, window.innerWidth - hayir.offsetWidth - 10);
+  const maxY = Math.max(0, window.innerHeight - hayir.offsetHeight - 10);
+
+  hayir.style.left = (5 + Math.random() * Math.max(0, maxX - 5)) + "px";
+  hayir.style.top = (5 + Math.random() * Math.max(0, maxY - 5)) + "px";
+}
+
+hayir.addEventListener("pointerdown", function(e) {
+  e.preventDefault();
+  kac();
+});
+
+hayir.addEventListener("mouseenter", kac);
+
+document.getElementById("evet").addEventListener("click", function() {
+  mesaj.textContent = "YAŞASIN! ZELİŞ ABLA AFFETTİ! ❤️🥹";
+  hayir.style.display = "none";
+
+  // 🎉 Konfeti Patlatma Efekti
+  confetti({
+    particleCount: 120,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+});
+</script>
 
 </body>
 </html>
